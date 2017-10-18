@@ -1,13 +1,15 @@
-JANUS_DIR="/opt/janus"
-JANUS_PLUGIN_DIR="$JANUS_DIR/lib/janus/plugins"
-SRC_DIR="/opt/sandbox/janus-ex-echotest/janus-echotest"
+JANUS_DIR="/tmp/janus"
+SRC_DIR="/opt/sandbox/janus-ex-streaming/janus-streaming/src"
 
 function _link_c_plugin {
-  ln -sf "$JANUS_PLUGIN_DIR/libjanus_echotest.so.0.0.0" "$JANUS_PLUGIN_DIR/libjanus_echotest.so"
+  ln -sf "$SRC_DIR/janus_streaming.c" "$JANUS_DIR/plugins/janus_streaming.c"
 }
-function _link_rust_plugin {
-  ln -sf "$SRC_DIR/target/debug/libjanus_echotest.so" "$JANUS_PLUGIN_DIR/libjanus_echotest.so"
+
+function _install_c_plugin {
+  cd $JANUS_DIR \
+    && make \
+    && make install
 }
 
 alias link_c_plugin=_link_c_plugin
-alias link_rust_plugin=_link_rust_plugin
+alias install_c_plugin=_install_c_plugin
