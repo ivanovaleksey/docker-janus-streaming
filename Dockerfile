@@ -69,8 +69,7 @@ RUN set -xe \
         && make || true \
         && make -j $(nproc) \
         && make install \
-        && make configs \
-        && rm -fr "${JANUS_BUILD_DIR}"
+        && make configs
 
 ## -----------------------------------------------------------------------------
 ## Installing Gstreamer
