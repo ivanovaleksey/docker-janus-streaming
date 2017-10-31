@@ -1,8 +1,8 @@
 JANUS_DIR="/tmp/janus"
-SRC_DIR="/opt/sandbox/janus-ex-streaming/janus-streaming/src"
+SRC_DIR_C="/opt/sandbox/janus-ex-streaming/janus-streaming-c/src"
 
 function _link_c_plugin {
-  ln -sf "$SRC_DIR/janus_streaming.c" "$JANUS_DIR/plugins/janus_streaming.c"
+  ln -sf "$SRC_DIR_C/janus_streaming.c" "$JANUS_DIR/plugins/janus_streaming.c"
 }
 
 function _install_c_plugin {
