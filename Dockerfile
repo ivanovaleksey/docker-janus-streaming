@@ -88,7 +88,7 @@ RUN set -xe \
 ## Configuring Janus
 ## -----------------------------------------------------------------------------
 RUN set -xe \
-    JANUS_DIR='/opt/janus'
+    && JANUS_DIR='/opt/janus' \ 
     && perl -pi -e 's/(http = ).*/${1}no/' $JANUS_DIR/etc/janus/janus.transport.http.cfg \
     && perl -pi -e 's/(https = ).*/${1}yes/' $JANUS_DIR/etc/janus/janus.transport.http.cfg \
     && perl -pi -e 's/(debug_level = ).*/${1}5/' $JANUS_DIR/etc/janus/janus.cfg
